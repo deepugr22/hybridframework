@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-02-05T17:00:25 EST" name="Default suite" finished-at="2023-02-05T17:01:06 EST" duration-ms="40864">
+    <groups>
+    </groups>
+    <test started-at="2023-02-05T17:00:25 EST" name="Default test" finished-at="2023-02-05T17:01:06 EST" duration-ms="40864">
+      <class name="com.testscenarios.TS002_JRI_Login">
+        <test-method signature="tc_10()[pri:0, instance:com.testscenarios.TS002_JRI_Login@4f80542f]" started-at="2023-02-05T17:00:25 EST" name="tc_10" finished-at="2023-02-05T17:00:40 EST" duration-ms="14881" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tc_10 -->
+        <test-method signature="tc_11()[pri:0, instance:com.testscenarios.TS002_JRI_Login@4f80542f]" started-at="2023-02-05T17:00:40 EST" name="tc_11" finished-at="2023-02-05T17:00:41 EST" duration-ms="1333" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tc_11 -->
+        <test-method signature="tc_12()[pri:0, instance:com.testscenarios.TS002_JRI_Login@4f80542f]" started-at="2023-02-05T17:00:41 EST" name="tc_12" finished-at="2023-02-05T17:00:44 EST" duration-ms="2802" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tc_12 -->
+        <test-method signature="tc_13()[pri:0, instance:com.testscenarios.TS002_JRI_Login@4f80542f]" started-at="2023-02-05T17:00:44 EST" name="tc_13" finished-at="2023-02-05T17:01:06 EST" duration-ms="21735" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tc_13 -->
+      </class> <!-- com.testscenarios.TS002_JRI_Login -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
