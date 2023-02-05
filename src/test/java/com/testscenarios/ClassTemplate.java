@@ -9,15 +9,15 @@ public class ClassTemplate {
   @Test
   public void f() {
   }
-  @AfterMethod
+  @AfterMethod  //Post Test
   public void afterMethod() {
   }
 
-  @BeforeClass
+  @BeforeClass //Pre condition
   public void beforeClass() {
   }
 
-  @AfterClass
+  @AfterClass  //Post condition
   public void afterClass() {
   }
 

@@ -1,7 +1,5 @@
 package com.utilities;
 
-
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -16,9 +14,6 @@ import java.util.Properties;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.concurrent.TimeUnit;
-import java.util.function.Function;
-
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -30,11 +25,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
@@ -43,21 +36,18 @@ import org.testng.annotations.Parameters;
 
 import com.objectrepository.Locators;
 
-
-
-
 public class ReusableFunctions {
-	public static WebDriver driver;	
-	public String screenshotPath ;
-	public String className ;
-	public String methodName ;
+	public  WebDriver driver;
+	public String screenshotPath;
+	public String className;
+	public String methodName;
 	public FileInputStream fi;
 	public Actions actions;
 	public JavascriptExecutor js;
-	
-	public String propertyFile = "QA_testdata.properties";
+
+	public String propertyFile = "QA_Environment_TestData.properties";
 	public String projectDir = System.getProperty("user.dir");
-	
+
 	public Locators loc = new Locators();
 	public Properties p = new Properties();
 	public Scanner s = new Scanner(System.in);
@@ -416,7 +406,7 @@ public class ReusableFunctions {
 	public void switchAndCloseNewTab() {
 		// Get the current window handle
 		String parentWindow = driver.getWindowHandle();
-		//Switch to New tab [chilld window]
+		// Switch to New tab [chilld window]
 		ArrayList<String> allTabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(allTabs.get(1));
 		// Close the newly Opened Window[chilld window]
@@ -582,12 +572,47 @@ public class ReusableFunctions {
 			System.out.println("Error occurred while performing drag and drop operation " + e.getStackTrace());
 		}
 	}
-	
-	
-	public void randomNumberWithInRange(int minimum,int maximum) {
+
+	public void randomNumberWithInRange(int minimum, int maximum) {
 		int randomNum = ThreadLocalRandom.current().nextInt(minimum, maximum + 1);
-        System.out.println(randomNum);
+		System.out.println(randomNum);
 	}
 
-}
+	public void verifyWebElement(By locator) {
 
+		if (driver.findElements(locator).size() > 0) {
+			System.out.println(locator + " is displayed on screen ");
+
+		} else {
+			System.out.println(locator + " is not displayed on screen,please check the locator ");
+		}
+
+	}
+
+//	public void verifyElementsInListEquals(List<By> elementsList) {
+//
+//		ArrayList<String> TextList = new ArrayList<String>();
+//		for (By x : elementsList) {
+//			
+//			if (driver.findElements(x).size() > 0) {
+//				System.out.println(x + " is displayed on screen ");
+//
+//			} else {
+//				System.out.println(x + " is not displayed on screen,please check the locator ");
+//			}
+//		}
+//
+//	}
+	public void verifyTexttobePresent(By locator, String expectedresults) throws Exception {
+		WebElement ele = driver.findElement(locator);
+		highlightElement(ele);
+		String eleText = ele.getText();
+		fi = new FileInputStream(".\\src\\test\\resources\\testdata\\" + propertyFile);
+		p.load(fi);
+		if (eleText.equals(p.getProperty(expectedresults))) {
+			System.out.println("expected text presented on screen");
+		} else {
+			System.out.println("expected text not presented on screen");
+		}
+	}
+}
