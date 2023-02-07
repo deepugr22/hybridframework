@@ -18,6 +18,7 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
+
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -37,7 +38,7 @@ import org.testng.annotations.Parameters;
 import com.objectrepository.Locators;
 
 public class ReusableFunctions {
-	public  WebDriver driver;
+	public WebDriver driver;
 	public String screenshotPath;
 	public String className;
 	public String methodName;
@@ -140,6 +141,19 @@ public class ReusableFunctions {
 			}
 		} else {
 			System.out.println("Given locator is not displayed on DOM(Current page***");
+		}
+	}
+	
+	public void getCaptchaFromConsoleAndSendToEditBox(By locator) throws Exception {
+		WebElement ele = driver.findElement(locator);
+		System.out.println("Enter the captcha manually in console:");
+		String captcha = s.next();
+		Thread.sleep(6000);
+		if (ele.isDisplayed() && ele.isEnabled()) {
+			highlightElement(ele);
+			ele.clear();
+			highlightElement(ele);
+			ele.sendKeys(captcha);
 		}
 	}
 
@@ -615,4 +629,6 @@ public class ReusableFunctions {
 			System.out.println("expected text not presented on screen");
 		}
 	}
+
+	
 }

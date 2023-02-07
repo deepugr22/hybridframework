@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 
 public class Locators {
 	public final By homepage_signinlink = By.id("jriTop_signin9");
+	public final By homepage_CreateNewAccount = By.id("signup-link9");
 	public final By SigninPage_EmailEditbox = By.id("txtUserName");
 	public final By SigninPage_PwdEditbox = By.name("txtPasswd");
 	public final By SigninPage_CaptchaEditbox = By.name("txtCaptcha");
@@ -19,8 +20,21 @@ public class Locators {
 	
 	public final By CreateAccountpage_NameEditbox = By.id("signup_name");
 	public final By CreateAccountpage_MobilenoEditbox =By.name("signup_mobileno");
-	//public final By CreateAccountpage_EmailEditbox = By.className("textfield-348x36 radius inputsbg");
+	public final By CreateAccountpage_EmailEditbox = By.id("signup_email");
 	public final By CreateAccountpage_PasswordEditbox = By.name("signup_password");
 	public final By CreateAccountpage_Termscheckbox = By.id("checkbox");
 	public final By CreateAccountpage_CreateAccountButton = By.name("imgbtnSubmit");
+	public final By CreateAccountpage_NameErrorMsg = By.id("nameTD") ;
+	public final By CreateAccountpage_MobileErrorMsg = By.id("mobilenoTD") ;
+	public final By CreateAccountpage_EmailErrorMsg= By.id("emailTD") ;
+	public final By CreateAccountpage_PasswdErrorMsg= By.id("passwordTD") ;
+	public final By CreateAccountpage_TermsandConditionsErrorMsg= By.id("tdcondition") ;
+	
+	
+	
+	
+	
+	
+	
+	
 }
