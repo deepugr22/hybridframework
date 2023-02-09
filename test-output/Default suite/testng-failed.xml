@@ -5,7 +5,7 @@
     <classes>
       <class name="com.testscenarios.TS002_JRI_Login">
         <methods>
-          <include name="tc_13"/>
+          <include name="tc_16_to_19"/>
         </methods>
       </class> <!-- com.testscenarios.TS002_JRI_Login -->
     </classes>

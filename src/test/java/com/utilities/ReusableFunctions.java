@@ -38,7 +38,7 @@ import org.testng.annotations.Parameters;
 import com.objectrepository.Locators;
 
 public class ReusableFunctions {
-	public WebDriver driver;
+	public static WebDriver driver;
 	public String screenshotPath;
 	public String className;
 	public String methodName;
@@ -109,10 +109,10 @@ public class ReusableFunctions {
 		driver.get(p.getProperty(URL));
 	}
 
-	public void sendCaptchaToEditBox(By locator) {
-		WebElement element = driver.findElement(locator);
-		element.sendKeys(s.next());
-	}
+//	public void sendCaptchaToEditBox(By locator) {
+//		WebElement element = driver.findElement(locator);
+//		element.sendKeys(s.next());
+//	}
 
 	/*******
 	 * SendKeys
@@ -143,7 +143,7 @@ public class ReusableFunctions {
 			System.out.println("Given locator is not displayed on DOM(Current page***");
 		}
 	}
-	
+
 	public void getCaptchaFromConsoleAndSendToEditBox(By locator) throws Exception {
 		WebElement ele = driver.findElement(locator);
 		System.out.println("Enter the captcha manually in console:");
@@ -207,10 +207,10 @@ public class ReusableFunctions {
 	 * 
 	 * @throws Exception
 	 ************/
-	public void takeScreenshot() throws Exception {
+	public void takeScreenshot(String name) throws Exception {
 		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		String screenshotPath = ".\\Screenshots\\";
-		FileHandler.copy(scrFile, new File(screenshotPath + "Nordstrom" + timestamp() + ".PNG"));
+		FileHandler.copy(scrFile, new File(screenshotPath + name + timestamp() + ".PNG"));
 		System.out.println("Screenshot taken*** ");
 	}
 
@@ -625,10 +625,12 @@ public class ReusableFunctions {
 		p.load(fi);
 		if (eleText.equals(p.getProperty(expectedresults))) {
 			System.out.println("expected text presented on screen");
+
+		} else if (eleText.contains(expectedresults)) {
+			System.out.println("expected text contains  on screen");
 		} else {
 			System.out.println("expected text not presented on screen");
 		}
 	}
 
-	
 }

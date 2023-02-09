@@ -16,8 +16,12 @@ public class Locators {
 	public final By SigninPage_InvalidEmailErrorMsg = By.xpath("//*[text()='Enter valid email for login']");
 	public final By SigninPage_PwdErrorMsg = By.xpath("//*[text()='Enter your password']");
 	public final By SigninPage_CaptchaErrorMsg = By.xpath("//*[text()='Enter captcha properly']");
-	
-	
+	public final By DirectoryPage_SignoutButton =  By.id("jriTop_signOut");
+	public final By SignInPageForgotPwdDialoguebox_EmailEditbox = By.name("forgotpass$txtEmailId");
+	public final By SignInPageForgotPwdDialoguebox_GetPasswordButton = By.id("forgotpass_imgbtnSubmit");
+	public final By SignInPageForgotPwdDialoguebox_EmailblankErrorMsg = By.id("forgotpass_lblError");
+	public final By SignInPageForgotPwdDialoguebox_ForgotPwdSuccessMsg = By.xpath("//*[@id=\"forgotpass_lblError\"]/span/text()");
+	public final By SignInPageForgotPwdDialoguebox_ForgotPwdclosebox = By.xpath("//*[@id=\"heading\"]/span/a/img");
 	public final By CreateAccountpage_NameEditbox = By.id("signup_name");
 	public final By CreateAccountpage_MobilenoEditbox =By.name("signup_mobileno");
 	public final By CreateAccountpage_EmailEditbox = By.id("signup_email");
